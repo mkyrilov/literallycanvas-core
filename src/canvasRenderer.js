@@ -244,7 +244,7 @@ const _drawRawLinePath = function(ctx, points, close, lineCap) {
 };
 
 const drawLinePath = function(ctx, shape) {
-    _drawRawLinePath(ctx, shape.smoothedPoints.slice(8, shape.smoothedPoints.lenght - 8));
+    _drawRawLinePath(ctx, shape.smoothedPoints.slice(8, shape.smoothedPoints.length - 8));
     ctx.stroke();
 };
 const drawLinePathLatest = function(ctx, bufferCtx, shape) {
