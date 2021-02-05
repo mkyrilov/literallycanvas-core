@@ -244,7 +244,7 @@ const _drawRawLinePath = function(ctx, points, close, lineCap) {
 };
 
 const drawLinePath = function(ctx, shape) {
-    _drawRawLinePath(ctx, shape.smoothedPoints);
+    _drawRawLinePath(ctx, shape.smoothedPoints.slice(8, shape.smoothedPoints.lenght - 8));
     ctx.stroke();
 };
 const drawLinePathLatest = function(ctx, bufferCtx, shape) {
@@ -267,7 +267,7 @@ const drawLinePathLatest = function(ctx, bufferCtx, shape) {
     }
 };
 
-defineCanvasRenderer("LinePath", drawLinePath, drawLinePathLatest);
+defineCanvasRenderer("LinePath", drawLinePath/*, drawLinePathLatest*/);
 
 // same as the line path funcs, but erase instead of draw
 const drawErasedLinePath = function(ctx, shape) {
@@ -291,7 +291,7 @@ const drawErasedLinePathLatest = function(ctx, bufferCtx, shape) {
 defineCanvasRenderer(
     "ErasedLinePath",
     drawErasedLinePath,
-    drawErasedLinePathLatest,
+    /*drawErasedLinePathLatest,*/
 );
 
 defineCanvasRenderer("Text", function(ctx, shape) {
